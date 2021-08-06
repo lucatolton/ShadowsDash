@@ -3,9 +3,9 @@ require("../../require/config.php");
 ?>
 <!--
 =========================================================
-* Argon Dashboard PRO - v1.2.0
+* Argon Dashboard - v1.2.0
 =========================================================
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro
+* Product Page: https://www.creative-tim.com/product/argon-dashboard
 * Copyright  Creative Tim (http://www.creative-tim.com)
 * Coded by www.creative-tim.com
 =========================================================
