@@ -6,6 +6,21 @@
 <p align="center"><a href="https://dashdocs.shadow-baguet.xyz/"><img src="https://i.imgur.com/IJnJnTA.png" width=20%></a></p>
 All installation, add-ons tutorials and other stuff are available in the documentation!
 
+# 🗃️ Base features
+Theses features are the basic ones. In the future, more features are likely to come.
+| Feature               | Available |
+|-----------------------|-----------|
+| Server creation       | ✔️         |
+| Server editing        | ❌         |
+| Server deletion       | ✔️         |
+| Panel credentials     | ✔️         |
+| Login                 | ✔️         |
+| Registering           | ✔️         |
+| Discord oAuth handler | ✔️         |
+| Queue system          | ✔️         |
+| Earning coins         | ❌         |
+
+
 # 🥇 Alpha version
 Welcome to the ALPHA version of Shadow's Dash! This version **is not meant to be used in a production environement**, but rather be used for add-ons developement, and testing purposes. If you find a bug, report it asap!
 
