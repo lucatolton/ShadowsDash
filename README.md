@@ -25,7 +25,7 @@ Theses features are the basic ones. In the future, more features are likely to c
 Welcome to the ALPHA version of Shadow's Dash! This version **is not meant to be used in a production environement**, but rather be used for add-ons developement, and testing purposes. If you find a bug, report it asap!
 
 # 🎨 Frontend
-We are using argon free as a frontend. You can change that! Read the documentation to learn more.
+We are using argon as a frontend. You can change that! Read the documentation to learn more.
 
 # 👔 Contributing
 I'm open to all contributions! Feel free to help! :)
