@@ -19,7 +19,7 @@ Theses features are the basic ones. In the future, more features are likely to c
 | Discord oAuth handler | ✔️         |
 | Queue system          | ✔️         |
 | Earning coins         | ❌         |
-
+| Resources shop        | ❌         |
 
 # 🥇 Alpha version
 Welcome to the ALPHA version of Shadow's Dash! This version **is not meant to be used in a production environement**, but rather be used for add-ons developement, and testing purposes. If you find a bug, report it asap!
@@ -34,3 +34,9 @@ I'm open to all contributions! Feel free to help! :)
 I do not want money from what I code...
 No, really man... Dang if you really want to...
 I only accept gift cards or XMR. Dm me on Discord to support the project.
+
+# Shoutouts
+Big shoutout to MythicalKitten, Bartosz1, BlackKitten, Daftscientist, Emerald Mike, honk, RobusOfficial, tlkh40 and Will for their cool support.
+Shoutout to JOSH for some parts of his code.
+
+Take a free baguette 🥖
