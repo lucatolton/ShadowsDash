@@ -1,4 +1,8 @@
 <?php
+// ==============================================
+// This script is 99.999% coming from J0SH#8445!
+// Big shoutout and thx!
+// ==============================================
 session_start();
 require("../require/sql.php");
 
