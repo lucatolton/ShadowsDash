@@ -88,7 +88,7 @@ if (isset($_SESSION['access_token'])) {
         }
     }
     if ($inDiscord == false) {
-        header("Location: /auth/auth/login/errors/notondiscord");
+        header("Location: /auth/login/errors/notondiscord");
     }
     /*
     ALT DETECTOR
