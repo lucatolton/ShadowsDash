@@ -1,3 +1,4 @@
+Hello! This project is currently paused, as school came back and free time went away. This will hopefully be revived a day or another. Star to stay tuned :D
 <p align="center"><img src="https://i.imgur.com/kyStXrA.png" width=70%></p>
 <p align="center"><img src="https://i.imgur.com/sKZJ5tV.png" width=60% /></p>
 <p align="center">A shared-resources based dashboard for pterodactyl hosting services</p>
