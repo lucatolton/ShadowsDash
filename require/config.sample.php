@@ -29,7 +29,7 @@ $_CONFIG["homeNews_title"] = "News title";
 $_CONFIG["homeNews_content"] = "News content";
 $_CONFIG["homeNews_bgimage"] = ""; // Leave empty for none | we recommend a darken background image, for better text reading on light images
 $_CONFIG["homeNews_bgcolor"] = ""; // Leave empty for the default color
-$_CONFIG["homeNews_buttonLink"] = "#";
+$_CONFIG["homeNews_buttonLink"] = "";
 $_CONFIG["homeNews_buttonText"] = "Read more";
 
 $_CONFIG["vipqueue"] = "30"; // price of the vip queue
