@@ -91,7 +91,7 @@ for ($i = 1; $i <= strlen($password); $i++) {
               <h3 class="mb-0"><img src="https://i.imgur.com/WtzMfm7.png" width="30"> Your credentials</h3>
             </div>
             <div class="card-body">
-                <i>Theses credentials are for access to your game panel account. Do not share theses! We recommend to enable 2FA on your account.</i>
+                <i>Theses credentials are for access to your game panel account. <span style="color: red;">Do not share theses!</span> We recommend to enable 2FA on your account.</i>
                 <br/><br/>
                 <div style="text-align: center;">
                     <img src="https://i.imgur.com/1e90xFP.png" width="90"><br/>
@@ -108,22 +108,22 @@ for ($i = 1; $i <= strlen($password); $i++) {
         <div class="row align-items-center justify-content-lg-between">
           <div class="col-lg-6">
             <div class="copyright text-center  text-lg-left  text-muted">
-                &copy; 2021 <a href="https://shadow-baguet.xyz" class="font-weight-bold ml-1" target="_blank">X_Shadow_#5962</a> - Theme by <a href="https://creativetim.com" target="_blank">Creative Tim</a>
+                &copy; 2021 <a href="https://xshadow.me" class="font-weight-bold ml-1" target="_blank">X_Shadow_#5962</a> - Theme by <a href="https://creativetim.com" target="_blank">Creative Tim</a>
             </div>
           </div>
           <div class="col-lg-6">
             <ul class="nav nav-footer justify-content-center justify-content-lg-end">
               <li class="nav-item">
-                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+                <a href="<?= $_CONFIG["website"] ?>" class="nav-link" target="_blank"> Website</a>
               </li>
               <li class="nav-item">
-                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+                <a href="<?= $_CONFIG["statuspage"] ?>" class="nav-link" target="_blank">Uptime / Status</a>
               </li>
               <li class="nav-item">
-                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+                <a href="<?= $_CONFIG["privacypolicy"] ?>" class="nav-link" target="_blank">Privacy policy</a>
               </li>
               <li class="nav-item">
-                <a href="https://www.creative-tim.com/license" class="nav-link" target="_blank">License</a>
+                <a href="<?= $_CONFIG["termsofservice"] ?>" class="nav-link" target="_blank">Terms of service</a>
               </li>
             </ul>
           </div>

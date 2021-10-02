@@ -25,6 +25,11 @@ foreach($servers as $serv) {
         "Accept: Application/vnd.pterodactyl.v1+json"
     ));
     $result1 = curl_exec($ch);
+    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if ($httpcode != 200) {
+        echo '<div style="background-color: red; width: 100%; color: white; text-align:center;"> Unable to connect to the game panel! Please contact one of the server administrators.<br/><br/><small>Details: [' . $httpcode . '] ' . $result1 . '</small></div>';
+        die();
+    }
     curl_close($ch);
     $result = json_decode($result1, true);
     $id = $result['attributes']["uuid"];
@@ -61,17 +66,23 @@ foreach($servers_in_queue as $server) {
             <p class="text-white mt-0 mb-5">Welcome to <?= $_CONFIG["name"] ?>! Get your server below!</p>
             <a href="create" class="btn btn-neutral">Create a new server</a>
           </div>
-          <div class="col">
+          <?php
+          if ($_CONFIG["homeNews_show"]) {
+            ?>
+            <div class="col">
               <div class="card bg-gradient-default">
-                  <div class="card-body">
-                      <h3 class="card-title text-white">News title</h3>
+                  <div class="card-body" style="background-image: url('<?= $_CONFIG["homeNews_bgimage"] ?>'); background-repeat: no-repeat; background-size: cover; background-position: center center; background-color: <?= $_CONFIG["homeNews_bgcolor"] ?>;">
+                      <h3 class="card-title text-white"><?= $_CONFIG["homeNews_title"] ?></h3>
                       <blockquote class="blockquote text-white mb-0">
-                          <p>News content</p>
-                          <a href="#" class="btn btn-neutral btn-sm">News link</a>
+                          <p><?= $_CONFIG["homeNews_content"] ?></p>
+                          <a href="<?= $_CONFIG["homeNews_buttonLink"]; ?>" class="btn btn-neutral btn-sm"><?= $_CONFIG["homeNews_buttonText"] ?></a>
                       </blockquote>
                   </div>
               </div>
-          </div>
+            </div>
+            <?php
+          }
+          ?>
         </div>
       </div>
     </div>
@@ -484,16 +495,16 @@ foreach($servers_in_queue as $server) {
           <div class="col-lg-6">
             <ul class="nav nav-footer justify-content-center justify-content-lg-end">
               <li class="nav-item">
-                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+                <a href="<?= $_CONFIG["website"] ?>" class="nav-link" target="_blank"> Website</a>
               </li>
               <li class="nav-item">
-                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+                <a href="<?= $_CONFIG["statuspage"] ?>" class="nav-link" target="_blank">Uptime / Status</a>
               </li>
               <li class="nav-item">
-                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+                <a href="<?= $_CONFIG["privacypolicy"] ?>" class="nav-link" target="_blank">Privacy policy</a>
               </li>
               <li class="nav-item">
-                <a href="https://www.creative-tim.com/license" class="nav-link" target="_blank">License</a>
+                <a href="<?= $_CONFIG["termsofservice"] ?>" class="nav-link" target="_blank">Terms of service</a>
               </li>
             </ul>
           </div>

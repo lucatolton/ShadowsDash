@@ -17,9 +17,9 @@ $user = $_SESSION['user'];
 $userdb = mysqli_query($cpconn, "SELECT * FROM users WHERE discord_id = '" . mysqli_real_escape_string($cpconn, $user->id) . "'")->fetch_object();
 $curcoins = $userdb->coins;
 if ($curcoins < $_CONFIG["vipqueue"]) {
-    $cneeded = $userdb->coins - $curcoins;
+    $cneeded = $_CONFIG["vipqueue"] - $userdb->coins;
     if ($userdb->coins == 0) {
-        $cneeded = 50;
+        $cneeded = $_CONFIG["vipqueue"];
     }
     $_SESSION['error'] = "You do not have enough coins to buy the VIP queue. You need <strong>$cneeded</strong> more coins!";
     header("location: /");

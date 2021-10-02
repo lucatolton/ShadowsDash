@@ -10,7 +10,7 @@ $isDonator = false;
         <div class="header-body">
             <div class="row align-items-center py-4">
                 <div class="col-lg-6 col-7">
-                    <h6 class="h2 text-white d-inline-block mb-0">Game panel credentials</h6>
+                    <h6 class="h2 text-white d-inline-block mb-0">Create a server</h6>
                     <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
@@ -159,14 +159,14 @@ $isDonator = false;
                         <?php
                         if ($location["status"] == "DONATOR") {
                             if ($isDonator == false) {
-                                echo '<button type="button" class="btn btn-danger" disabled="1">Donators only</button>';
+                                echo '<button type="button" class="btn btn-danger" style="cursor: not-allowed;" disabled="1">Donators only</button>';
                             }
                             else {
                                 echo '<button type="button" class="btn btn-primary" id="btnnode' . $location["id"] . '" onclick="selectNode(' . $location["id"] . ', this);">SELECT</button>';
                             }
 
                         } elseif ($location["status"] == "MAINTENANCE") {
-                            echo '<button type="button" class="btn btn-danger" disabled="1">Maintenance</button>';
+                            echo '<button type="button" class="btn btn-danger" style="cursor: not-allowed;" disabled="1">Maintenance</button>';
                         } else {
                             echo '<button type="button" class="btn btn-primary" id="btnnode' . $location["id"] . '" onclick="selectNode(' . $location["id"] . ', this);">SELECT</button>';
                         }
@@ -244,22 +244,22 @@ $isDonator = false;
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-6">
                         <div class="copyright text-center  text-lg-left  text-muted">
-                            &copy; 2021 <a href="https://shadow-baguet.xyz" class="font-weight-bold ml-1" target="_blank">X_Shadow_#5962</a> - Theme by <a href="https://creativetim.com" target="_blank">Creative Tim</a>
+                            &copy; 2021 <a href="https://xshadow.me" class="font-weight-bold ml-1" target="_blank">X_Shadow_#5962</a> - Theme by <a href="https://creativetim.com" target="_blank">Creative Tim</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+                                <a href="<?= $_CONFIG["website"] ?>" class="nav-link" target="_blank"> Website</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+                                <a href="<?= $_CONFIG["statuspage"] ?>" class="nav-link" target="_blank">Uptime / Status</a>
                             </li>
                             <li class="nav-item">
-                                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+                                <a href="<?= $_CONFIG["privacypolicy"] ?>" class="nav-link" target="_blank">Privacy policy</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com/license" class="nav-link" target="_blank">License</a>
+                                <a href="<?= $_CONFIG["termsofservice"] ?>" class="nav-link" target="_blank">Terms of service</a>
                             </li>
                         </ul>
                     </div>

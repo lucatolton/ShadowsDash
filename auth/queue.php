@@ -3,7 +3,7 @@ include("../require/config.php");
 $_SESSION["in_queue"] = 1;
 $lastlogin = file_get_contents("queue.txt");
 $oper = time() - $lastlogin;
-$timeleft = 5 - $oper;
+$timeleft = $_CONFIG["loginCooldown"] - $oper;
 if ($timeleft <= 0) {
     $_SESSION["in_queue"] = 0;
     file_put_contents("queue.txt", time());
@@ -39,6 +39,8 @@ if ($timeleft <= 0) {
   <link rel="stylesheet" href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="/assets/css/argon.css?v=1.2.0" type="text/css">
+  <!-- AUTO REFRESH FOR QUEUE -->
+  <meta http-equiv="refresh" content="5" >
 </head>
 
 <body class="bg-default">
@@ -112,15 +114,16 @@ if ($timeleft <= 0) {
       </div>
     </div>
     <!-- Page content -->
-    <div class="container mt--8 pb-5">
+    <div class="container mt--9 pb-5">
       <div class="row justify-content-center">
-        <div class="col-lg-5 col-md-7">
+        <div class="col-lg-7 col-md-9">
           <div class="card card-profile bg-secondary mt-5">
             <div class="card-body pt-5 px-5">
               <div class="text-center mb-4">
                 <img src="https://i.imgur.com/6zHRcBs.png" width="100" />
                 <h3>Woah!</h3>
                 <p>We are getting a lot of users trying to login right now. Please wait a little. You will be automatically redirected once it's your turn to access the client area.</p>
+                <p>This page will automatically refresh. <b>Do not close this tab!</b></p>
               </div>
               <form role="form">
                 <div class="text-center">
@@ -140,7 +143,7 @@ if ($timeleft <= 0) {
       <div class="row align-items-center justify-content-xl-between">
         <div class="col-xl-6">
           <div class="copyright text-center text-xl-left text-muted">
-            &copy; 2021 <a href="https://shadow-baguet.xyz" class="font-weight-bold ml-1" target="_blank">X_Shadow_#5962</a> - Theme by <a href="https://creativetim.com" target="_blank">Creative Tim</a>
+            &copy; 2021 <a href="https://xshadow.me" class="font-weight-bold ml-1" target="_blank">X_Shadow_#5962</a> - Theme by <a href="https://creativetim.com" target="_blank">Creative Tim</a>
           </div>
         </div>
       </div>

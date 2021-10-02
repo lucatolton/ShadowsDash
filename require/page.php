@@ -143,6 +143,9 @@ $userdb = $cpconn->query("SELECT * FROM users WHERE discord_id = '" . mysqli_rea
                 <i class="ni ni-zoom-split-in"></i>
               </a>
             </li>
+            <li class="nav-item" style="color: white;">
+                <?= $userdb["coins"] ?> coins.
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="ni ni-ungroup"></i>

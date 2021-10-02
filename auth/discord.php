@@ -62,7 +62,7 @@ if (isset($_SESSION['access_token'])) {
     $ipaddr = getclientip();
     $user = apiRequest($apiURLBase);
     $username = $user->username . "#" . $user->discriminator;
-    $avatar = "https://cdn.discordapp.com/avatars/" . $user->id . "/" . $user->avatar;
+    $avatar = "https://cdn.discordapp.com/avatars/" . "$user->id" . '/' . "$user->avatar" . ".png";;
     if (empty($user->avatar)) {
         $avatar = "https://support.discord.com/hc/user_images/l12c7vKVRCd-XLIdDkLUDg.png";
     }
@@ -88,7 +88,7 @@ if (isset($_SESSION['access_token'])) {
         }
     }
     if ($inDiscord == false) {
-        header("Location: /auth/login/errors/notondiscord");
+        header("Location: /auth/errors/notondiscord");
     }
     /*
     ALT DETECTOR
@@ -126,8 +126,10 @@ if (isset($_SESSION['access_token'])) {
     $vpn = false;
     $response = file_get_contents("https://proxycheck.io/v2/" . $ipaddr . "?vpn=1&asn=1");
     $response = json_decode($response, true);
-    if ($response['proxy'] == true) {
-        $vpn = true;
+    if (isset($response['proxy'])) {
+        if ($response['proxy'] == true) {
+            $vpn = true;
+        }
     }
     if ($response['type'] = !"Residential") {
         $vpn = true;
@@ -319,8 +321,10 @@ if (isset($_SESSION['access_token'])) {
         $_SESSION['user'] = $user;
         $_SESSION["uid"] = $user->id;
         $_SESSION['loggedin'] = true;
-        if ($_SESSION["firstlogin"]) {
+        if (isset($_SESSION["firstlogin"])) {
             header("location: welcome");
+        } else {
+            header("location: /");
         }
 
 
