@@ -1,16 +1,22 @@
 <?php
+echo "====== ShadowsDash queue ======\n\n";
+echo "[INFO/loader] Loading files...\n";
 require("../require/config.php");
 require("../require/sql.php");
 $timeAtStart = time();
+echo "[INFO/loader] Fetching the servers in queue...\n";
 $queue = mysqli_query($cpconn, "SELECT * FROM servers_queue ORDER BY type DESC");
+echo "[INFO/loader] " . $queue->num_rows . " servers in queue!\n";
+echo "\033[32m[INFO/loader] Processing started!\n";
 foreach($queue as $server) {
+    echo "\033[39m"; // RESET COLOR
     $time = time();
     $date = date("d:m:y h:i:s");
     echo "[INFO] Processing server " . $server['name'] . PHP_EOL;
     $location = $server['location'];
     $locationd = mysqli_query($cpconn, "SELECT * FROM locations WHERE id = '" . mysqli_real_escape_string($cpconn, $location) . "'");
     if ($locationd->num_rows == 0) {
-        echo "[WARNING] Location does not exist." . PHP_EOL;
+        echo "\033[31m[WARNING] Location does not exist." . PHP_EOL;
         continue;
     }
     $locationd = $locationd->fetch_assoc();
@@ -19,7 +25,7 @@ foreach($queue as $server) {
     $slots_all = $locationd['slots'];
     if ($slots_used >= $slots_all) {
         if ($server['type'] != "2") {
-            echo "[INFO] No slots available to create server " . $server['name'] . PHP_EOL;
+            echo "\033[31m[INFO] No slots available to create server " . $server['name'] . PHP_EOL;
             continue;
         }
 
@@ -27,7 +33,7 @@ foreach($queue as $server) {
     $egg = $server['egg'];
     $eggd = mysqli_query($cpconn, "SELECT * FROM eggs WHERE id = '" . mysqli_real_escape_string($cpconn, $egg) . "'");
     if ($eggd->num_rows == 0) {
-        echo "[WARNING $date] Egg does not exist." . PHP_EOL;
+        echo "\033[33m[WARNING $date] Egg does not exist." . PHP_EOL;
         continue;
     }
     $egg = $eggd->fetch_object();
@@ -85,7 +91,9 @@ foreach($queue as $server) {
             'TS_VERSION' => 'latest',
             'FILE_TRANSFER' => '30033',
             'MAX_USERS' => 100,
-            'MUMBLE_VERSION' => 'latest'
+            'MUMBLE_VERSION' => 'latest',
+            // PYTHON
+            'REQUIREMENTS_FILE' => 'requirements.txt',
         ),
         'limits' => array(
             'memory' => $server['ram'],
@@ -117,7 +125,7 @@ foreach($queue as $server) {
     curl_close($panelcurl);
     $ee = json_decode($result, true);
     if (!isset($ee['object'])) {
-        echo "[ERROR $date] Server failed to create, error details are as follows.\nCode: " . $ee['errors'][0]['code'] . "\nDetail: " . $ee['errors'][0]['detail'] . PHP_EOL;
+        echo "\033[31m[ERROR $date] Server failed to create, error details are as follows.\nCode: " . $ee['errors'][0]['code'] . "\nDetail: " . $ee['errors'][0]['detail'] . PHP_EOL;
         continue;
     }
     $identifier = $ee['attributes']['identifier'];
@@ -127,12 +135,12 @@ foreach($queue as $server) {
     mysqli_query($cpconn, "DELETE FROM servers_queue WHERE id=" . $server['id']);
     $created = date("d-m-y", time());
     if (mysqli_query($cpconn, "INSERT INTO servers (`pid`, `uid`, `location`, `timestamp`, `created`) VALUES ($pid, $uid, $location, $time, '$created')")) {
-        echo "[SUCCESS] The server called " . $server['name'] . " got created.";
+        echo "\033[32m[SUCCESS] The server called " . $server['name'] . " got created.";
     }
     else {
-        echo "[INFO] Error inserting server into db." . PHP_EOL;
+        echo "\033[31m[INFO] Error inserting server into db." . PHP_EOL;
     }
     
 }
 $timeExecuted = time() - $timeAtStart;
-echo "[END] Queue handler ran in $timeExecuted seconds." . PHP_EOL;
+echo "\n\n\033[32m[END] Queue handler ran in $timeExecuted seconds.\033[39m" . PHP_EOL;

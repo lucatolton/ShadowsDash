@@ -32,7 +32,7 @@ $userdb = $cpconn->query("SELECT * FROM users WHERE discord_id = '" . mysqli_rea
   <meta name="author" content="Creative Tim">
   <title><?= $_CONFIG["name"] ?></title>
   <!-- Favicon -->
-  <link rel="icon" href="/assets/img/brand/favicon.png" type="image/png">
+  <link rel="icon" href="<?= $_CONFIG["favicon"] ?>" type="image/png">
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <!-- Icons -->
@@ -48,7 +48,7 @@ $userdb = $cpconn->query("SELECT * FROM users WHERE discord_id = '" . mysqli_rea
     <div class="scrollbar-inner">
       <!-- Brand -->
       <div class="sidenav-header  d-flex  align-items-center">
-        <a class="navbar-brand" href="../../pages/dashboards/dashboard.html">
+        <a class="navbar-brand" href="/">
           <img src="<?= $_CONFIG["logo_black"] ?>" class="navbar-brand-img" alt="...">
         </a>
         <div class=" ml-auto ">
@@ -225,3 +225,4 @@ $userdb = $cpconn->query("SELECT * FROM users WHERE discord_id = '" . mysqli_rea
         </div>
     </div>
 </div>
+<!--- BEGINNING OF THE CONTENT -->

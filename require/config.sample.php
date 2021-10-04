@@ -20,6 +20,7 @@ $_CONFIG["privacypolicy"] = ""; // Privacy policy - If you want to start an host
 $_CONFIG["termsofservice"] = ""; // Terms of service - NOT RULES! :) - If you want to start an host, please do this or you'll get drama.gg'ed ;)
 $_CONFIG["home_background"] = "https://i.imgur.com/ksvpSN3.jpeg"; // The background of the home page
 $_CONFIG["home_color"] = "warning"; // The card colors of the home page
+$_CONFIG["favicon"] = ""; // A .png image link for your favicon.
 
 // HOME NEWS
 // The news showing next to the "Hello username#tag!" in the home page.
